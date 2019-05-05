@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wzh.seim.service.dao.user.TOperatorMapper">
+  <resultMap id="BaseResultMap" type="com.wzh.seim.service.entity.user.TOperator">
+    <id column="FOPERATORID" jdbcType="DECIMAL" property="foperatorid" />
+    <result column="FUSERID" jdbcType="VARCHAR" property="fuserid" />
+    <result column="FPASSWORD" jdbcType="VARCHAR" property="fpassword" />
+    <result column="FOPERATORNAME" jdbcType="VARCHAR" property="foperatorname" />
+    <result column="FSTATUS" jdbcType="DECIMAL" property="fstatus" />
+    <result column="FORGID" jdbcType="DECIMAL" property="forgid" />
+    <result column="FPYM" jdbcType="VARCHAR" property="fpym" />
+    <result column="FROLEID" jdbcType="DECIMAL" property="froleid" />
+    <result column="FSITES" jdbcType="DECIMAL" property="fsites" />
+    <result column="FRCODE" jdbcType="VARCHAR" property="frcode" />
+    <result column="FTYPE" jdbcType="VARCHAR" property="ftype" />
+    <result column="MACCODE" jdbcType="VARCHAR" property="maccode" />
+    <result column="IPADDRESS" jdbcType="VARCHAR" property="ipaddress" />
+    <result column="CREATEDATE" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="USERTEL" jdbcType="VARCHAR" property="usertel" />
+    <result column="USEREMAIL" jdbcType="VARCHAR" property="useremail" />
+    <result column="USERZIP" jdbcType="VARCHAR" property="userzip" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="ENDDATE" jdbcType="TIMESTAMP" property="enddate" />
+    <result column="LASTLOGIN" jdbcType="TIMESTAMP" property="lastlogin" />
+    <result column="THEME" jdbcType="VARCHAR" property="theme" />
+    <result column="HOME" jdbcType="VARCHAR" property="home" />
+    <result column="ADMINORGIDS" jdbcType="VARCHAR" property="adminorgids" />
+    <result column="ROLENAMES" jdbcType="VARCHAR" property="rolenames" />
+    <result column="STATUSDESC" jdbcType="VARCHAR" property="statusdesc" />
+    <result column="ADDRESS" jdbcType="VARCHAR" property="address" />
+    <result column="USERMOBILE" jdbcType="VARCHAR" property="usermobile" />
+    <result column="SEX" jdbcType="CHAR" property="sex" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    FOPERATORID, FUSERID, FPASSWORD, FOPERATORNAME, FSTATUS, FORGID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TOPERATOR
+    where FOPERATORID = #{foperatorid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from TOPERATOR
+    where FOPERATORID = #{foperatorid,jdbcType=DECIMAL}
+  </delete>
+
+  <insert id="insertSelective" parameterType="com.wzh.seim.service.entity.user.TOperator">
+    insert into TOPERATOR
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="foperatorid != null">
+        FOPERATORID,
+      </if>
+      <if test="fuserid != null">
+        FUSERID,
+      </if>
+      <if test="fpassword != null">
+        FPASSWORD,
+      </if>
+      <if test="foperatorname != null">
+        FOPERATORNAME,
+      </if>
+      <if test="fstatus != null">
+        FSTATUS,
+      </if>
+      <if test="forgid != null">
+        FORGID,
+      </if>
+      <if test="fpym != null">
+        FPYM,
+      </if>
+      <if test="froleid != null">
+        FROLEID,
+      </if>
+      <if test="fsites != null">
+        FSITES,
+      </if>
+      <if test="frcode != null">
+        FRCODE,
+      </if>
+      <if test="ftype != null">
+        FTYPE,
+      </if>
+      <if test="maccode != null">
+        MACCODE,
+      </if>
+      <if test="ipaddress != null">
+        IPADDRESS,
+      </if>
+      <if test="createdate != null">
+        CREATEDATE,
+      </if>
+      <if test="usertel != null">
+        USERTEL,
+      </if>
+      <if test="useremail != null">
+        USEREMAIL,
+      </if>
+      <if test="userzip != null">
+        USERZIP,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="enddate != null">
+        ENDDATE,
+      </if>
+      <if test="lastlogin != null">
+        LASTLOGIN,
+      </if>
+      <if test="theme != null">
+        THEME,
+      </if>
+      <if test="home != null">
+        HOME,
+      </if>
+      <if test="adminorgids != null">
+        ADMINORGIDS,
+      </if>
+      <if test="rolenames != null">
+        ROLENAMES,
+      </if>
+      <if test="statusdesc != null">
+        STATUSDESC,
+      </if>
+      <if test="address != null">
+        ADDRESS,
+      </if>
+      <if test="usermobile != null">
+        USERMOBILE,
+      </if>
+      <if test="sex != null">
+        SEX,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="foperatorid != null">
+        #{foperatorid,jdbcType=DECIMAL},
+      </if>
+      <if test="fuserid != null">
+        #{fuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="fpassword != null">
+        #{fpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="foperatorname != null">
+        #{foperatorname,jdbcType=VARCHAR},
+      </if>
+      <if test="fstatus != null">
+        #{fstatus,jdbcType=DECIMAL},
+      </if>
+      <if test="forgid != null">
+        #{forgid,jdbcType=DECIMAL},
+      </if>
+      <if test="fpym != null">
+        #{fpym,jdbcType=VARCHAR},
+      </if>
+      <if test="froleid != null">
+        #{froleid,jdbcType=DECIMAL},
+      </if>
+      <if test="fsites != null">
+        #{fsites,jdbcType=DECIMAL},
+      </if>
+      <if test="frcode != null">
+        #{frcode,jdbcType=VARCHAR},
+      </if>
+      <if test="ftype != null">
+        #{ftype,jdbcType=VARCHAR},
+      </if>
+      <if test="maccode != null">
+        #{maccode,jdbcType=VARCHAR},
+      </if>
+      <if test="ipaddress != null">
+        #{ipaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="usertel != null">
+        #{usertel,jdbcType=VARCHAR},
+      </if>
+      <if test="useremail != null">
+        #{useremail,jdbcType=VARCHAR},
+      </if>
+      <if test="userzip != null">
+        #{userzip,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="enddate != null">
+        #{enddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastlogin != null">
+        #{lastlogin,jdbcType=TIMESTAMP},
+      </if>
+      <if test="theme != null">
+        #{theme,jdbcType=VARCHAR},
+      </if>
+      <if test="home != null">
+        #{home,jdbcType=VARCHAR},
+      </if>
+      <if test="adminorgids != null">
+        #{adminorgids,jdbcType=VARCHAR},
+      </if>
+      <if test="rolenames != null">
+        #{rolenames,jdbcType=VARCHAR},
+      </if>
+      <if test="statusdesc != null">
+        #{statusdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="usermobile != null">
+        #{usermobile,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wzh.seim.service.entity.user.TOperator">
+    update TOPERATOR
+    <set>
+      <if test="fuserid != null">
+        FUSERID = #{fuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="fpassword != null">
+        FPASSWORD = #{fpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="foperatorname != null">
+        FOPERATORNAME = #{foperatorname,jdbcType=VARCHAR},
+      </if>
+      <if test="fstatus != null">
+        FSTATUS = #{fstatus,jdbcType=DECIMAL},
+      </if>
+      <if test="forgid != null">
+        FORGID = #{forgid,jdbcType=DECIMAL},
+      </if>
+      <if test="fpym != null">
+        FPYM = #{fpym,jdbcType=VARCHAR},
+      </if>
+      <if test="froleid != null">
+        FROLEID = #{froleid,jdbcType=DECIMAL},
+      </if>
+      <if test="fsites != null">
+        FSITES = #{fsites,jdbcType=DECIMAL},
+      </if>
+      <if test="frcode != null">
+        FRCODE = #{frcode,jdbcType=VARCHAR},
+      </if>
+      <if test="ftype != null">
+        FTYPE = #{ftype,jdbcType=VARCHAR},
+      </if>
+      <if test="maccode != null">
+        MACCODE = #{maccode,jdbcType=VARCHAR},
+      </if>
+      <if test="ipaddress != null">
+        IPADDRESS = #{ipaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="usertel != null">
+        USERTEL = #{usertel,jdbcType=VARCHAR},
+      </if>
+      <if test="useremail != null">
+        USEREMAIL = #{useremail,jdbcType=VARCHAR},
+      </if>
+      <if test="userzip != null">
+        USERZIP = #{userzip,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="enddate != null">
+        ENDDATE = #{enddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastlogin != null">
+        LASTLOGIN = #{lastlogin,jdbcType=TIMESTAMP},
+      </if>
+      <if test="theme != null">
+        THEME = #{theme,jdbcType=VARCHAR},
+      </if>
+      <if test="home != null">
+        HOME = #{home,jdbcType=VARCHAR},
+      </if>
+      <if test="adminorgids != null">
+        ADMINORGIDS = #{adminorgids,jdbcType=VARCHAR},
+      </if>
+      <if test="rolenames != null">
+        ROLENAMES = #{rolenames,jdbcType=VARCHAR},
+      </if>
+      <if test="statusdesc != null">
+        STATUSDESC = #{statusdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        ADDRESS = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="usermobile != null">
+        USERMOBILE = #{usermobile,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        SEX = #{sex,jdbcType=CHAR},
+      </if>
+    </set>
+    where FOPERATORID = #{foperatorid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wzh.seim.service.entity.user.TOperator">
+    update TOPERATOR
+    set FUSERID = #{fuserid,jdbcType=VARCHAR},
+      FPASSWORD = #{fpassword,jdbcType=VARCHAR},
+      FOPERATORNAME = #{foperatorname,jdbcType=VARCHAR},
+      FSTATUS = #{fstatus,jdbcType=DECIMAL},
+      FORGID = #{forgid,jdbcType=DECIMAL},
+      FPYM = #{fpym,jdbcType=VARCHAR},
+      FROLEID = #{froleid,jdbcType=DECIMAL},
+      FSITES = #{fsites,jdbcType=DECIMAL},
+      FRCODE = #{frcode,jdbcType=VARCHAR},
+      FTYPE = #{ftype,jdbcType=VARCHAR},
+      MACCODE = #{maccode,jdbcType=VARCHAR},
+      IPADDRESS = #{ipaddress,jdbcType=VARCHAR},
+      CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
+      USERTEL = #{usertel,jdbcType=VARCHAR},
+      USEREMAIL = #{useremail,jdbcType=VARCHAR},
+      USERZIP = #{userzip,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      ENDDATE = #{enddate,jdbcType=TIMESTAMP},
+      LASTLOGIN = #{lastlogin,jdbcType=TIMESTAMP},
+      THEME = #{theme,jdbcType=VARCHAR},
+      HOME = #{home,jdbcType=VARCHAR},
+      ADMINORGIDS = #{adminorgids,jdbcType=VARCHAR},
+      ROLENAMES = #{rolenames,jdbcType=VARCHAR},
+      STATUSDESC = #{statusdesc,jdbcType=VARCHAR},
+      ADDRESS = #{address,jdbcType=VARCHAR},
+      USERMOBILE = #{usermobile,jdbcType=VARCHAR},
+      SEX = #{sex,jdbcType=CHAR}
+    where FOPERATORID = #{foperatorid,jdbcType=DECIMAL}
+  </update>
+
+
+
+
+
+
+</mapper>

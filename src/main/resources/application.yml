@@ -1,0 +1,45 @@
+server:
+  port: 8989
+  servlet:
+    context-path: /seim
+
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@192.168.0.21:1521:orcl
+    username: gfoltp_xyh
+    password: gfoltp_xyh
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    name: se
+    # druid
+    type: com.alibaba.druid.pool.DruidDataSource
+    filters: stat
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+    logSlowSql: true
+  thymeleaf:
+    cache: false
+
+mybatis:
+  mapper-locations: classpath:mapping/*/*.xml
+  type-aliases-package: com.wzh.seim.service.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    default-fetch-size: 100
+    default-statement-timeout: 30
+
+#pagehelper
+#pagehelper:
+#  helperDialect: oracle
+#  reasonable: true
+#  supportMethodsArguments: true
+#  params: count=countSql
